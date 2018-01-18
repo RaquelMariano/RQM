@@ -3,27 +3,27 @@
 <head>
   <meta http-equiv="content-type" content="text/html; charset=utf-8" />
   <title>Google Visualization API Sample</title>
-  <input type="text" id="country">
-  <button onclick="countrySearch()">Search</button>
+  <input type="text" id="tech">
+  <button onclick="techSearch()">Search</button>
   <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
   <script type="text/javascript">
     google.charts.load("current", {packages:['table']});
     google.charts.setOnLoadCallback(drawVisualization);
-		var country = "%";
+		var tech = "%";
     function drawVisualization() {
       google.visualization.drawChart({
         "containerId": "visualization_div",
         "dataSourceUrl": "//www.google.com/fusiontables/gvizdata?tq=",
         "query":"SELECT 'Technology', 'Building Name', 'Country' FROM " + 
                 "1ioK71n7OomJL2D8Ly_ET8uQaLYvAkVxCAQSVl5rF" + 
-                " WHERE Technology LIKE '%"+ country +"%'",
+                " WHERE Technology LIKE '%"+ tech +"%'",
         "chartType": "Table",
         "options": {}
      });
     }
-    function countrySearch() 
+    function techSearch() 
     {
-     country = document.getElementById("country").value;
+     tech = document.getElementById("tech").value;
      drawVisualization();
     }
     
@@ -33,3 +33,4 @@
   <div id="visualization_div" style="width: 600px; height: 400px;"></div>
 </body>
 </html>
+
