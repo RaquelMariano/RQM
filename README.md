@@ -11,7 +11,7 @@
       google.visualization.drawChart({
         "containerId": "visualization_div",
         "dataSourceUrl": "//www.google.com/fusiontables/gvizdata?tq=",
-        "query":"SELECT 'Building Name', 'Country' FROM " +
+        "query":"SELECT 'Building Name', 'Picture', 'Country' FROM " +
                 "13IhnuBzX0CHkluSJUjBtfhWsrllB0nSgbzbmcSb7" +
                 " WHERE Country LIKE 'Canada' ",
         "refreshInterval": 5,
