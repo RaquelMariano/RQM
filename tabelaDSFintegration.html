@@ -15,7 +15,7 @@
                 google.visualization.drawChart({
                     "containerId": "visualization_div",
                     "dataSourceUrl": "//www.google.com/fusiontables/gvizdata?tq=",
-                    "query":"SELECT 'Technology' FROM " + 
+                    "query":"SELECT 'ID', 'Technology', 'EnvelopeElement', 'Orientation', 'Control Type' FROM " + 
                     "1ioK71n7OomJL2D8Ly_ET8uQaLYvAkVxCAQSVl5rF" + 
                     " WHERE 'Building Name' LIKE '%"+ BName +"%'",
                     "chartType": "Table",
@@ -26,7 +26,7 @@
                 google.visualization.drawChart({
                     "containerId": "visualization_div2",
                     "dataSourceUrl": "//www.google.com/fusiontables/gvizdata?tq=",
-                    "query":"SELECT 'Building Name', 'Country' FROM " + 
+                    "query":"SELECT 'Building Name', 'Location', 'Date' 'Building Use', 'Architects / Developers', 'Façade / Energy Specialist' FROM " + 
                     "13IhnuBzX0CHkluSJUjBtfhWsrllB0nSgbzbmcSb7" + 
                     " WHERE 'Building Name' LIKE '%"+ BName +"%'",
                     "chartType": "Table",
@@ -37,7 +37,7 @@
 	                google.visualization.drawChart({
 	                    "containerId": "visualization_div3",
 	                    "dataSourceUrl": "//www.google.com/fusiontables/gvizdata?tq=",
-	                    "query":"SELECT 'Building Name', 'Country', 'Ventilation Type' FROM " + 
+	                    "query":"SELECT 'ID', 'Ventilation Type', 'Ventilation Mode', 'Cavity Partition' FROM " + 
 	                    "1XnSk2H6iPgFXzMJ_ppKbR8K_qEsIW0iBa5_ZC88x" + 
 	                    " WHERE 'Building Name' LIKE '%"+ BName +"%'",
 	                    "chartType": "Table",
@@ -49,7 +49,7 @@
 	                google.visualization.drawChart({
 	                    "containerId": "visualization_div4",
 	                    "dataSourceUrl": "//www.google.com/fusiontables/gvizdata?tq=",
-	                    "query":"SELECT 'Building Name', 'Country', 'Type' FROM " + 
+	                    "query":"SELECT 'Type', 'Location' FROM " + 
 	                    "12bUbpeys40aOmkJSJUJjtUkIqV2imn1_UyJjuFah" + 
 	                    " WHERE 'Building Name' LIKE '%"+ BName +"%'",
 	                    "chartType": "Table",
