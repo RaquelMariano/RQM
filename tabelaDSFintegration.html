@@ -16,7 +16,7 @@
                     "containerId": "visualization_div",
                     "dataSourceUrl": "//www.google.com/fusiontables/gvizdata?tq=",
                     "query":"SELECT 'ID', 'Technology', 'EnvelopeElement', 'Orientation', 'Control Type' FROM " + 
-                    "1ioK71n7OomJL2D8Ly_ET8uQaLYvAkVxCAQSVl5rF" + 
+                    "1BfpFouAmOx43Yrmk2xOFbK_63XEhltzI-RzOqU5d" + 
                     " WHERE 'Building Name' LIKE '%"+ BName +"%'",
                     "chartType": "Table",
                     "options": {}
@@ -26,8 +26,8 @@
                 google.visualization.drawChart({
                     "containerId": "visualization_div2",
                     "dataSourceUrl": "//www.google.com/fusiontables/gvizdata?tq=",
-                    "query":"SELECT 'Building Name', 'Location', 'Date', 'Building Use' FROM " + 
-                    "13IhnuBzX0CHkluSJUjBtfhWsrllB0nSgbzbmcSb7" + 
+                    "query":"SELECT 'Building Name', 'Location', 'Date', 'Building Use', 'Designers', 'Façade or Energy Specialist', 'Description' FROM " + 
+                    "1aV6eqezyjszrHXZboAD0nM5XPLRlQLGvg9sYnjN7" + 
                     " WHERE 'Building Name' LIKE '%"+ BName +"%'",
                     "chartType": "Table",
                     "options": {}
@@ -38,7 +38,7 @@
 	                    "containerId": "visualization_div3",
 	                    "dataSourceUrl": "//www.google.com/fusiontables/gvizdata?tq=",
 	                    "query":"SELECT 'ID', 'Ventilation Type', 'Ventilation Mode', 'Cavity Partition' FROM " + 
-	                    "1XnSk2H6iPgFXzMJ_ppKbR8K_qEsIW0iBa5_ZC88x" + 
+	                    "1BfpFouAmOx43Yrmk2xOFbK_63XEhltzI-RzOqU5d" + 
 	                    " WHERE 'Building Name' LIKE '%"+ BName +"%'",
 	                    "chartType": "Table",
 	                    "options": {}
@@ -49,13 +49,38 @@
 	                google.visualization.drawChart({
 	                    "containerId": "visualization_div4",
 	                    "dataSourceUrl": "//www.google.com/fusiontables/gvizdata?tq=",
-	                    "query":"SELECT 'ID', 'Type', 'Location' FROM " + 
-	                    "12bUbpeys40aOmkJSJUJjtUkIqV2imn1_UyJjuFah" + 
+	                    "query":"SELECT 'ID', 'Type', 'Location','Input','Output','User Override' FROM " + 
+	                    "18BG1RYsJPy4ngvwJiiM_9HLQoc90PMTJBQRhA9sc" + 
 	                    " WHERE 'Building Name' LIKE '%"+ BName +"%'",
 	                    "chartType": "Table",
 	                    "options": {}
                   });
             }
+		
+		    function drawVisualizationOpening() {
+	                google.visualization.drawChart({
+	                    "containerId": "visualization_div5",
+	                    "dataSourceUrl": "//www.google.com/fusiontables/gvizdata?tq=",
+	                    "query":"SELECT 'ID', 'Type', 'Material','Shape','Input','Output','User Override' FROM " + 
+	                    "1mE1yJJb1LhBEsvRKZIT2d3Ggk5kjX26QVpa3cVSl" + 
+	                    " WHERE 'Building Name' LIKE '%"+ BName +"%'",
+	                    "chartType": "Table",
+	                    "options": {}
+                  });
+            }
+		
+			function drawVisualizationNatural() {
+	                google.visualization.drawChart({
+	                    "containerId": "visualization_div6",
+	                    "dataSourceUrl": "//www.google.com/fusiontables/gvizdata?tq=",
+	                    "query":"SELECT 'ID', 'Material','Type','Input','Output','User Override' FROM " + 
+	                    "1OM1V24JlKT1MD9wySr7qiGIAv77wXkd5FhY1862i" + 
+	                    " WHERE 'Building Name' LIKE '%"+ BName +"%'",
+	                    "chartType": "Table",
+	                    "options": {}
+                  });
+            }
+		
             function buildingSearch() 
             {
                 BName = document.getElementById("BName").value;
@@ -63,6 +88,8 @@
                 drawVisualizationTech();
 		drawVisualizationDSF();
 		drawVisualizationShading();
+		drawVisualizationOpening();
+		drawVisualizationNatural();
             }
         </script>
     </head>
@@ -71,5 +98,7 @@
         <div id="visualization_div" style="width: 600px; height: 400px;"></div>
 	<div id="visualization_div3" style="width: 600px; height: 400px;"></div>
         <div id="visualization_div4" style="width: 600px; height: 400px;"></div>
+	<div id="visualization_div5" style="width: 600px; height: 400px;"></div>
+	<div id="visualization_div6" style="width: 600px; height: 400px;"></div>
     </body>
 </html>
