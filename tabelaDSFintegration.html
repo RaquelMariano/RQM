@@ -80,6 +80,18 @@
 	                    "options": {}
                   });
             }
+			function drawVisualizationKineticB() {
+	                google.visualization.drawChart({
+	                    "containerId": "visualization_div7",
+	                    "dataSourceUrl": "//www.google.com/fusiontables/gvizdata?tq=",
+	                    "query":"SELECT 'ID', 'Type','Input','Output','User Override' FROM " + 
+	                    "1q9oFXRqde6zOnSFApzDl1xgkNDRraFU8fBHgo0Ql" + 
+	                    " WHERE 'Building Name' LIKE '%"+ BName +"%'",
+	                    "chartType": "Table",
+	                    "options": {}
+                  });
+            }
+		
 		
             function buildingSearch() 
             {
@@ -90,6 +102,7 @@
 		drawVisualizationShading();
 		drawVisualizationOpening();
 		drawVisualizationNatural();
+		drawVisualizationKineticB();
             }
         </script>
     </head>
@@ -100,6 +113,7 @@
         <div id="visualization_div4" style="width: 600px; height: 400px;"></div>
 	<div id="visualization_div5" style="width: 600px; height: 400px;"></div>
 	<div id="visualization_div6" style="width: 600px; height: 400px;"></div>
+	<div id="visualization_div7" style="width: 600px; height: 400px;"></div>
     </body>
 </html>
             
