@@ -33,12 +33,12 @@
                     "options": {}
                 });
             }
-           function drawVisualizationDSF() {
+             function drawVisualizationDSF() {
 	                google.visualization.drawChart({
 	                    "containerId": "visualization_div3",
 	                    "dataSourceUrl": "//www.google.com/fusiontables/gvizdata?tq=",
-	                    "query":"SELECT 'ID', 'Ventilation Type', 'Ventilation Mode', 'Cavity Partition' FROM " + 
-	                    "1BfpFouAmOx43Yrmk2xOFbK_63XEhltzI-RzOqU5d" + 
+	                    "query":"SELECT 'ID', 'Type', 'Material','Shape','Input','Output','User Override' FROM " + 
+	                    "1xgIj3Wrx2VRHC7FdXU3sAoGKrX4Ac7ENVMy76rza" + 
 	                    " WHERE 'Building Name' LIKE '%"+ BName +"%'",
 	                    "chartType": "Table",
 	                    "options": {}
