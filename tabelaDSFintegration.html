@@ -33,16 +33,16 @@
                     "options": {}
                 });
             }
-             function drawVisualizationDSF() {
-	                google.visualization.drawChart({
-	                    "containerId": "visualization_div3",
-	                    "dataSourceUrl": "//www.google.com/fusiontables/gvizdata?tq=",
-	                    "query":"SELECT 'ID', 'Ventilation Type', 'Ventilation Mode','Cavity Partition','Cavity Width','Input','Output','User Override' FROM " + 
-	                    "1xgIj3Wrx2VRHC7FdXU3sAoGKrX4Ac7ENVMy76rza" + 
-	                    " WHERE 'Building Name' LIKE '%"+ BName +"%'",
-	                    "chartType": "Table",
-	                    "options": {}
-                  });
+              function drawVisualizationDSF() {
+                google.visualization.drawChart({
+                    "containerId": "visualization_div3",
+                    "dataSourceUrl": "//www.google.com/fusiontables/gvizdata?tq=",
+                    "query":"SELECT 'Building Name', 'Ventilation Mode', 'Cavity Partition' FROM " + 
+                    "1xgIj3Wrx2VRHC7FdXU3sAoGKrX4Ac7ENVMy76rza" + 
+                    " WHERE 'Building Name' LIKE '%"+ BName +"%'",
+                    "chartType": "Table",
+                    "options": {}
+                });
             }
 		  
            function drawVisualizationShading() {
@@ -102,3 +102,4 @@
 	<div id="visualization_div6" style="width: 600px; height: 400px;"></div>
     </body>
 </html>
+            
