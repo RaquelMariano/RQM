@@ -21,12 +21,37 @@
                     "chartType": "Table",
                     "options": {}
                 });
+		    var table = new google.visualization.Table(document.getElementById('visualization_div')); 
+ 			table.draw(data, options);
+		    google.visualization.events.addListener(table, 'select', selectHandler);
             }
+		function selectHandler() {
+  	var selection = table.getSelection();
+ 	 var message = '';
+ 	 for (var i = 0; i < selection.length; i++) {
+ 	   var item = selection[i];
+    	if (item.row != null && item.column != null) {
+    	  var str = data.getFormattedValue(item.row, item.column);
+   	   message += '{row:' + item.row + ',column:' + item.column + '} = ' + str + '\n';
+  	  } else if (item.row != null) {
+   	   var str = data.getFormattedValue(item.row, 0);
+   	   message += '{row:' + item.row + ', column:none}; value (col 0) = ' + str + '\n';
+   	 } else if (item.column != null) {
+   	   var str = data.getFormattedValue(0, item.column);
+   	   message += '{row:none, column:' + item.column + '}; value (row 0) = ' + str + '\n';
+  	  }
+	  }
+	  if (message == '') {
+	    message = 'nothing';
+	  }
+	  alert('You selected ' + message);
+	}
+		
             function drawVisualizationCountry() {
                 google.visualization.drawChart({
                     "containerId": "visualization_div2",
                     "dataSourceUrl": "//www.google.com/fusiontables/gvizdata?tq=",
-                    "query":"SELECT 'Building Name', 'Location', 'Date', 'Building Use', 'Designers', 'Façade or Energy Specialist', 'Button' FROM " + 
+                    "query":"SELECT 'Building Name', 'Location', 'Date', 'Building Use', 'Designers', 'Façade or Energy Specialist' FROM " + 
                     "1aV6eqezyjszrHXZboAD0nM5XPLRlQLGvg9sYnjN7" + 
                     " WHERE 'Building Name' LIKE '%"+ BName +"%'",
                     "chartType": "Table",
