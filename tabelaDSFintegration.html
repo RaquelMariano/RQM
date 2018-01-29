@@ -23,9 +23,7 @@
                 });
             }
 		
-		var table = new google.visualization.Table(document.getElementById('visualization_div')); 
- 			
-		    google.visualization.events.addListener(table, 'select', selectHandler);
+		
 		
 		function selectHandler() {
   	var selection = table.getSelection();
@@ -125,6 +123,9 @@
                 BName = document.getElementById("BName").value;
                 drawVisualizationCountry();
                 drawVisualizationTech();
+		    var table = new google.visualization.Table(document.getElementById('visualization_div')); 
+ 			
+		    google.visualization.events.addListener(table, 'select', selectHandler);
 		drawVisualizationDSF();
 		drawVisualizationShading();
 		drawVisualizationOpening();
