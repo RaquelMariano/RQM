@@ -39,12 +39,12 @@
         var layer = new google.maps.FusionTablesLayer();
         filterMap(layer, tableId, map);
 
-        google.maps.event.addDomListener(document.getElementById('johns-pizza'),
+        google.maps.event.addDomListener(document.getElementById('DSF'),
             'click', function() {
               filterMap(layer, tableId, map);
         });
 
-        google.maps.event.addDomListener(document.getElementById('jjs-express'),
+        google.maps.event.addDomListener(document.getElementById('Openings'),
             'click', function() {
               filterMap(layer, tableId, map);
         });
@@ -65,7 +65,7 @@
           }
           layer.setOptions({
             query: {
-              select: 'Address',
+              select: 'Location',
               from: tableId,
               where: where
             }
