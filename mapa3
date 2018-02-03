@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <style>
+    #map-canvas { width:500px; height:400px; }
+    .layer-wizard-search-label { font-family: sans-serif };
+  </style>
+  <script type="text/javascript"
+    src="http://maps.google.com/maps/api/js?sensor=false">
+  </script>
+  <script type="text/javascript">
+    var map;
+    var layer_0;
+    var layer_1;
+    var layer_2;
+    var layer_3;
+    function initialize() {
+      map = new google.maps.Map(document.getElementById('map-canvas'), {
+        center: new google.maps.LatLng(52.84934305854821, 45.20477744062497),
+        zoom: 2,
+        mapTypeId: google.maps.MapTypeId.ROADMAP
+      });
+      layer_0 = new google.maps.FusionTablesLayer({
+        query: {
+          select: "col2",
+          from: "1aV6eqezyjszrHXZboAD0nM5XPLRlQLGvg9sYnjN7"
+        },
+        map: map,
+        styleId: 2,
+        templateId: 2
+      });
+      layer_1 = new google.maps.FusionTablesLayer({
+        query: {
+          select: "col2",
+          from: "1aV6eqezyjszrHXZboAD0nM5XPLRlQLGvg9sYnjN7"
+        },
+        map: map,
+        styleId: 2,
+        templateId: 2
+      });
+      layer_2 = new google.maps.FusionTablesLayer({
+        query: {
+          select: "col2",
+          from: "1aV6eqezyjszrHXZboAD0nM5XPLRlQLGvg9sYnjN7"
+        },
+        map: map,
+        styleId: 2,
+        templateId: 2
+      });
+      layer_3 = new google.maps.FusionTablesLayer({
+        query: {
+          select: "col2",
+          from: "1aV6eqezyjszrHXZboAD0nM5XPLRlQLGvg9sYnjN7"
+        },
+        map: map,
+        styleId: 2,
+        templateId: 2
+      });
+    }
+    function changeMap_0() {
+      var whereClause;
+      var searchString = document.getElementById('search-string_0').value.replace(/'/g, "\\'");
+      if (searchString != '--Select--') {
+        whereClause = "'Building Name' CONTAINS IGNORING CASE '" + searchString + "'";
+      }
+      layer_0.setOptions({
+        query: {
+          select: "col2",
+          from: "1aV6eqezyjszrHXZboAD0nM5XPLRlQLGvg9sYnjN7",
+          where: whereClause
+        }
+      });
+    }
+    function changeMap_1() {
+      var whereClause;
+      var searchString = document.getElementById('search-string_1').value.replace(/'/g, "\\'");
+      if (searchString != '--Select--') {
+        whereClause = "'Building Use' = '" + searchString + "'";
+      }
+      layer_1.setOptions({
+        query: {
+          select: "col2",
+          from: "1aV6eqezyjszrHXZboAD0nM5XPLRlQLGvg9sYnjN7",
+          where: whereClause
+        }
+      });
+    }
+    function changeMap_2() {
+      var whereClause;
+      var searchString = document.getElementById('search-string_2').value.replace(/'/g, "\\'");
+      if (searchString != '--Select--') {
+        whereClause = "'Country' = '" + searchString + "'";
+      }
+      layer_2.setOptions({
+        query: {
+          select: "col2",
+          from: "1aV6eqezyjszrHXZboAD0nM5XPLRlQLGvg9sYnjN7",
+          where: whereClause
+        }
+      });
+    }
+    function changeMap_3() {
+      var whereClause;
+      var searchString = document.getElementById('search-string_3').value.replace(/'/g, "\\'");
+      if (searchString != '--Select--') {
+        whereClause = "'Main Technology' = '" + searchString + "'";
+      }
+      layer_3.setOptions({
+        query: {
+          select: "col2",
+          from: "1aV6eqezyjszrHXZboAD0nM5XPLRlQLGvg9sYnjN7",
+          where: whereClause
+        }
+      });
+    }
+    google.maps.event.addDomListener(window, 'load', initialize);
+  </script>
+  </head>
+  <body>
+    <div id="map-canvas"></div>
+    <div style="margin-top: 10px;">
+      <label class="layer-wizard-search-label">
+        Building
+        <input type="text" id="search-string_0">
+        <input type="button" onclick="changeMap_0()" value="Search">
+      </label> 
+    </div>
+    <div style="margin-top: 10px;">
+      <label class="layer-wizard-search-label">
+        Building Use
+        <select id="search-string_1" onchange="changeMap_1(this.value);">
+          <option value="--Select--">--Select--</option>
+          <option value="">(no value)</option>
+          <option value="Education">Education</option>
+          <option value="Experimental">Experimental</option>
+          <option value="Government">Government</option>
+          <option value="Healthcare">Healthcare</option>
+          <option value="Hospitality">Hospitality</option>
+          <option value="Leisure">Leisure</option>
+          <option value="Mixed-Use">Mixed-Use</option>
+          <option value="Office">Office</option>
+          <option value="Other">Other</option>
+          <option value="Residential">Residential</option>
+        </select>
+      </label> 
+    </div>
+    <div style="margin-top: 10px;">
+      <label class="layer-wizard-search-label">
+        Country
+        <select id="search-string_2" onchange="changeMap_2(this.value);">
+          <option value="--Select--">--Select--</option>
+          <option value="">(no value)</option>
+          <option value="Australia">Australia</option>
+          <option value="Austria">Austria</option>
+          <option value="Belgium">Belgium</option>
+          <option value="Brazil">Brazil</option>
+          <option value="Bulgaria">Bulgaria</option>
+          <option value="Canada">Canada</option>
+          <option value="China">China</option>
+          <option value="Czech Republic">Czech Republic</option>
+          <option value="Denmark">Denmark</option>
+          <option value="Finland">Finland</option>
+          <option value="France">France</option>
+          <option value="Germany">Germany</option>
+          <option value="Greece">Greece</option>
+          <option value="Iran">Iran</option>
+          <option value="Ireland">Ireland</option>
+          <option value="Israel">Israel</option>
+          <option value="Italy">Italy</option>
+          <option value="Japan">Japan</option>
+          <option value="Luxembourg">Luxembourg</option>
+          <option value="Netherlands">Netherlands</option>
+          <option value="New Caledonia">New Caledonia</option>
+          <option value="New Zealand">New Zealand</option>
+          <option value="Norway">Norway</option>
+          <option value="Portugal">Portugal</option>
+          <option value="Romania">Romania</option>
+          <option value="Scotland">Scotland</option>
+          <option value="Singapore">Singapore</option>
+          <option value="South Africa">South Africa</option>
+          <option value="South Korea">South Korea</option>
+          <option value="Spain">Spain</option>
+          <option value="Sweden">Sweden</option>
+          <option value="Switzerland">Switzerland</option>
+          <option value="Turkey">Turkey</option>
+          <option value="United Arab Emirates">United Arab Emirates</option>
+          <option value="United Kingdom">United Kingdom</option>
+          <option value="United States of America">United States of America</option>
+        </select>
+      </label> 
+    </div>
+    <div style="margin-top: 10px;">
+      <label class="layer-wizard-search-label">
+        Main Technology
+        <select id="search-string_3" onchange="changeMap_3(this.value);">
+          <option value="--Select--">--Select--</option>
+          <option value="DSF">DSF</option>
+          <option value="Kinetic Building">Kinetic Building</option>
+          <option value="Natural Element">Natural Element</option>
+          <option value="Openings">Openings</option>
+          <option value="Shading System">Shading System</option>
+          <option value="Smart Material">Smart Material</option>
+        </select>
+      </label> 
+    </div>
+  </body>
+</html>
