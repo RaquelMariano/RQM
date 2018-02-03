@@ -79,16 +79,16 @@
       // are checked, return an empty string.
       function generateWhere() {
         var filter = [];
-        var stores = document.getElementsByName('store');
-        for (var i = 0, store; store = stores[i]; i++) {
-          if (store.checked) {
-            var storeName = store.value.replace(/'/g, '\\\'');
-            filter.push("'" + storeName + "'");
+        var technologies = document.getElementsByName('Technology');
+        for (var i = 0, Technology; Technology = technologies[i]; i++) {
+          if (Technology.checked) {
+            var storeName = Technology.value.replace(/'/g, '\\\'');
+            filter.push("'" + Technology + "'");
           }
         }
         var where = '';
         if (filter.length) {
-          where = "'Store Name' IN (" + filter.join(',') + ')';
+          where = "'Technology' IN (" + filter.join(',') + ')';
         }
         return where;
       }
@@ -106,9 +106,6 @@
       <input type="checkbox" checked="checked" name="Technology"
           id="Openings" value="Openings">
       <label>Openings</label>
-      <input type="checkbox" checked="checked" name="store"
-          id="jp-pizzeria" value="John Paul's Pizzeria">
-      <label>John Paul's Pizzeria</label>
     </div>
   </body>
 </html>
