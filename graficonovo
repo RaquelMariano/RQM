@@ -1,0 +1,106 @@
+<!--
+You are free to copy and use this sample in accordance with the terms of the
+Apache license (http://www.apache.org/licenses/LICENSE-2.0.html)
+-->
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title>
+      Google Visualization API Sample
+    </title>
+    <script type="text/javascript" src="http://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+      google.load('visualization', '1');
+    </script>
+    <script type="text/javascript">
+      var winW = 500, winH = 300;
+      if (document.body && document.body.offsetWidth) {
+       winW = document.body.offsetWidth;
+       winH = document.body.offsetHeight;
+      }
+      if (document.compatMode == 'CSS1Compat' &&
+          document.documentElement &&
+          document.documentElement.offsetWidth ) {
+       winW = document.documentElement.offsetWidth;
+       winH = document.documentElement.offsetHeight;
+      }
+      if (window.innerWidth && window.innerHeight) {
+       winW = window.innerWidth;
+       winH = window.innerHeight;
+      }
+      function drawVisualization() {
+        var query = new google.visualization.Query("https://www.google.com/fusiontables/gvizdata?tq=select 'Main Technology', 'Icons', 'Country' from 1aV6eqezyjszrHXZboAD0nM5XPLRlQLGvg9sYnjN7 order by 'Main Technology' limit 400");
+        query.send(handleQueryResponse);
+        function handleQueryResponse(response) {
+          if (response.isError()) {
+            alert('Error in query: ' + response.getMessage()" " + response.getDetailedMessage());
+             return;
+          }
+          var data = response.getDataTable();
+          var wrapper = new google.visualization.ChartWrapper();
+          wrapper.setDataTable(data);
+          wrapper.setChartType("PieChart");
+          wrapper.setContainerId("null");
+          wrapper.setOptions(             {
+               "annotations": {
+                 "domain": {}
+               },
+               "hAxis": {
+                 "useFormatFromData": true,
+                 "viewWindow": {
+                   "max": null,
+                   "min": null
+                 },
+                 "minValue": null,
+                 "maxValue": null,
+                 "format": ""
+               },
+               "legacyScatterChartLabels": true,
+               "vAxes": [
+                 {
+                   "title": null,
+                   "minValue": null,
+                   "maxValue": null,
+                   "useFormatFromData": true,
+                   "viewWindow": {
+                     "max": null,
+                     "min": null
+                   },
+                   "logScale": false
+                 },
+                 {
+                   "useFormatFromData": true,
+                   "viewWindow": {
+                     "max": null,
+                     "min": null
+                   },
+                   "minValue": null,
+                   "maxValue": null,
+                   "logScale": false
+                 }
+               ],
+               "is3D": false,
+               "pieHole": 0,
+               "booleanRole": "certainty",
+               "width": "500",
+               "height": "400",
+               "strictFirstColumnType": false,
+               "vAxis": {
+                 "format": ""
+               }
+             });
+          wrapper.setOption("width", winW-20);
+          wrapper.setOption("height", winH-20);
+          wrapper.setOption("strictFirstColumnType", false);
+          wrapper.draw();
+        }
+      }
+;      google.setOnLoadCallback(drawVisualization);
+    </script>
+  </head>
+  <body style="font-family: Arial;border: 0 none;">
+    <div id="visualization"></div>
+  </body>
+</html>
