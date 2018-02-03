@@ -83,7 +83,7 @@
         for (var i = 0, Technology; Technology = technologies[i]; i++) {
           if (Technology.checked) {
             var storeName = Technology.value.replace(/'/g, '\\\'');
-            filter.push("'" + Technology + "'");
+            filter.push("'" + Technologyname + "'");
           }
         }
         var where = '';
