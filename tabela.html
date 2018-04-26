@@ -3,13 +3,13 @@
 <head>
   <meta http-equiv="content-type" content="text/html; charset=utf-8" />
   <title>Google Visualization API Sample</title>
-  <input type="text" id="country">
+  <input type="text" id="country" value="Portugal">
   <button onclick="countrySearch()">Search</button>
   <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
   <script type="text/javascript">
     google.charts.load("current", {packages:['table']});
     google.charts.setOnLoadCallback(drawVisualization);
-		var country = "a";
+		var country = "Portugal";
     function drawVisualization() {
       google.visualization.drawChart({
         "containerId": "visualization_div",
