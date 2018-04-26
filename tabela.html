@@ -16,7 +16,7 @@
         "dataSourceUrl": "//www.google.com/fusiontables/gvizdata?tq=",
         "query":"SELECT 'Building Name', 'Country' FROM " + 
                 "13IhnuBzX0CHkluSJUjBtfhWsrllB0nSgbzbmcSb7" + 
-                " WHERE lower(Country) LIKE lower('%"+ country + "%')",
+                " WHERE LOWER(Country) LIKE LOWER('%"+ country + "%')",
         "chartType": "Table",
         "options": {}
      });
