@@ -14,7 +14,7 @@
       google.visualization.drawChart({
         "containerId": "visualization_div",
         "dataSourceUrl": "//www.google.com/fusiontables/gvizdata?tq=",
-        "query":"SELECT 'Building Name', 'Country' FROM " + 
+        "query":"SELECT 'Building ID', 'Picture', 'Building Name', 'Building Use', 'Location', 'Climate Zone' FROM " + 
                 "1aV6eqezyjszrHXZboAD0nM5XPLRlQLGvg9sYnjN7" + 
                 " WHERE Country CONTAINS IGNORING CASE '"+ country + "'",
         "chartType": "Table",
