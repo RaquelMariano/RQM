@@ -5,8 +5,13 @@
          <title>Google Visualization API Sample</title>
          <input type="text" id="id">
          <select id ="tableSelection">
-             <option value="dsf">DSF</option>
-             <option value="shading">Shading</option>
+             <option value="dsf">Double-Skin Façades</option>
+             <option value="shading">Shading Systems</option>
+             <option value="Opening">Openings</option>
+             <option value="SmartMat">Smart Materials</option>
+             <option value="KineticEnv">Kinetic Envelopes</option>
+             <option value="GreenSyst">Green Systems</option>
+          
          </select>
          <button onclick="idSearch()">Search</button>
          <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
@@ -17,7 +22,7 @@
                  google.visualization.drawChart({
                      "containerId": "visualization_div",
                      "dataSourceUrl": "//www.google.com/fusiontables/gvizdata?tq=",
-                     "query":"SELECT 'ID', 'Ventilation Type', 'Ventilation Mode', 'Cavity Partition' FROM " + 
+                     "query":"SELECT 'ID', 'Ventilation Type', 'Ventilation Mode', 'Cavity Partition', 'Input', 'Output' FROM " + 
                      "1xgIj3Wrx2VRHC7FdXU3sAoGKrX4Ac7ENVMy76rza" + 
                      " WHERE 'ID' LIKE '%"+ id +"%'",
                      "chartType": "Table",
@@ -29,14 +34,61 @@
                  google.visualization.drawChart({
                      "containerId": "visualization_div",
                      "dataSourceUrl": "//www.google.com/fusiontables/gvizdata?tq=",
-                     "query":"SELECT 'ID', 'Type' FROM " + 
+                     "query":"SELECT 'ID', 'Type', 'Location', 'Input', Output' FROM " + 
                      "18BG1RYsJPy4ngvwJiiM_9HLQoc90PMTJBQRhA9sc" + 
                      " WHERE 'ID' LIKE '%"+ id +"%'",
                      "chartType": "Table",
                      "options": {}
                  });
              }
-
+          
+            function drawVisualizationOpening() {
+                 google.visualization.drawChart({
+                     "containerId": "visualization_div",
+                     "dataSourceUrl": "//www.google.com/fusiontables/gvizdata?tq=",
+                     "query":"SELECT 'ID', 'Type', 'Material', 'Input', Output' FROM " + 
+                     "1mE1yJJb1LhBEsvRKZIT2d3Ggk5kjX26QVpa3cVSl" + 
+                     " WHERE 'ID' LIKE '%"+ id +"%'",
+                     "chartType": "Table",
+                     "options": {}
+                 });
+             }
+          
+            function drawVisualizationSmartMat() {
+                 google.visualization.drawChart({
+                     "containerId": "visualization_div",
+                     "dataSourceUrl": "//www.google.com/fusiontables/gvizdata?tq=",
+                     "query":"SELECT 'ID', 'Type', 'Subtype', 'Input', Output' FROM " + 
+                     "1OBkiaGMkXdDEEiEvRyAhL_P5hVkdS7XVGojPcigN" + 
+                     " WHERE 'ID' LIKE '%"+ id +"%'",
+                     "chartType": "Table",
+                     "options": {}
+                 });
+             }
+            function drawVisualizationKineticEnv() {
+                 google.visualization.drawChart({
+                     "containerId": "visualization_div",
+                     "dataSourceUrl": "//www.google.com/fusiontables/gvizdata?tq=",
+                     "query":"SELECT 'ID', 'Motion', 'Scale', 'Input', Output' FROM " + 
+                     "1q9oFXRqde6zOnSFApzDl1xgkNDRraFU8fBHgo0Ql" + 
+                     " WHERE 'ID' LIKE '%"+ id +"%'",
+                     "chartType": "Table",
+                     "options": {}
+                 });
+             }
+          
+            function drawVisualizationGreenSyst() {
+                 google.visualization.drawChart({
+                     "containerId": "visualization_div",
+                     "dataSourceUrl": "//www.google.com/fusiontables/gvizdata?tq=",
+                     "query":"SELECT 'ID', 'Type' FROM " + 
+                     "1OM1V24JlKT1MD9wySr7qiGIAv77wXkd5FhY1862i" + 
+                     " WHERE 'ID' LIKE '%"+ id +"%'",
+                     "chartType": "Table",
+                     "options": {}
+                 });
+             }
+          
              function idSearch() 
              {
                  id = document.getElementById("id").value;
@@ -48,7 +100,18 @@
                  else if (value == "shading") {
                      drawVisualizationShading();
                                      }
-                 
+                 else if (value == "SmartMat") {
+                     drawVisualizationSmartMat();
+                                     }
+                 else if (value == "Opening") {
+                     drawVisualizationOpening();
+                                     }
+                 else if (value == "KineticEnv") {
+                     drawVisualizationKineticEnv();
+                                     }
+                else if (value == "GreenSyst") {
+                     drawVisualizationKineticEnv();
+                                     }
              }
 
 
