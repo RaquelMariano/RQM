@@ -5,8 +5,8 @@
          <title>Google Visualization API Sample</title>
          <input type="text" id="id">
          <select id ="tableSelection">
-             <option value="dsf">Double-Skin Façades</option>
-             <option value="shading">Shading Systems</option>
+             <option value="DSF">Double-Skin Façades</option>
+             <option value="Shading">Shading Systems</option>
              <option value="Opening">Openings</option>
              <option value="SmartMat">Smart Materials</option>
              <option value="KineticEnv">Kinetic Envelopes</option>
@@ -94,10 +94,10 @@
                  id = document.getElementById("id").value;
                  var e = document.getElementById("tableSelection");
                  var value = e.options[e.selectedIndex].value;
-                 if (value == "dsf") {
+                 if (value == "DSF") {
                      drawVisualizationDSF();
                                      }
-                 else if (value == "shading") {
+                 else if (value == "Shading") {
                      drawVisualizationShading();
                                      }
                  else if (value == "SmartMat") {
@@ -110,7 +110,7 @@
                      drawVisualizationKineticEnv();
                                      }
                 else if (value == "GreenSyst") {
-                     drawVisualizationKineticEnv();
+                     drawVisualizationGreenSyst();
                                      }
              }
 
