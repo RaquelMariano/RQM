@@ -31,7 +31,7 @@
       var whereClause;
       var searchString = document.getElementById('search-string_0').value.replace(/'/g, "\\'");
       if (searchString != '--Select--') {
-        whereClause = "'Main Technology' = '" + searchString + "'";
+        whereClause = "'Main Solution' = '" + searchString + "'";
       }
       layer_0.setOptions({
         query: {
@@ -48,7 +48,7 @@
     <div id="map-canvas"></div>
     <div style="margin-top: 10px;">
       <label class="layer-wizard-search-label">
-        Main Technology
+        Main Solution
         <select id="search-string_0" onchange="changeMap_0(this.value);">
           <option value="--Select--">--Select--</option>
           <option value="">(no value)</option>
