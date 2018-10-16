@@ -22,9 +22,9 @@
                  google.visualization.drawChart({
                      "containerId": "visualization_div",
                      "dataSourceUrl": "//www.google.com/fusiontables/gvizdata?tq=",
-                     "query":"SELECT 'ID', 'Ventilation Type', 'Ventilation Mode', 'Cavity Partition', 'Input', 'Output' FROM " + 
+                     "query":"SELECT 'Building ID', 'ID', 'Ventilation Type', 'Ventilation Mode', 'Cavity Partition', 'Input', 'Output' FROM " + 
                      "1xgIj3Wrx2VRHC7FdXU3sAoGKrX4Ac7ENVMy76rza" + 
-                     " WHERE 'ID' LIKE '"+ id +"' AND 'Building ID' LIKE '%'",
+                     " WHERE 'ID' LIKE '"+ id +"' AND 'Building ID' LIKE '3'",
                      "chartType": "Table",
                      "options": {}
                  });
