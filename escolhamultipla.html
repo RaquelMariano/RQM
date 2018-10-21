@@ -17,7 +17,7 @@
          <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
          <script type="text/javascript">
              google.charts.load("current", {packages:['table']});
-             var id = "%";
+             var bldgid = "%";
              function drawVisualizationDSF() {
                  google.visualization.drawChart({
                      "containerId": "visualization_div",
@@ -91,7 +91,7 @@
           
           function bldgidSearch() 
              {
-                 id = document.getElementById("bldgid").value;
+                 bldgid = document.getElementById("bldgid").value;
                  var e = document.getElementById("tableSelection");
                  var value = e.options[e.selectedIndex].value;
                  if (value == "DSF") {
