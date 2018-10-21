@@ -4,6 +4,7 @@
          <meta http-equiv="content-type" content="text/html; charset=utf-8" />
          <title>Google Visualization API Sample</title>
          <input type="text" id="id">
+         <input type="text" bldgid="bldgid">
          <select id ="tableSelection">
              <option value="DSF">Double-Skin Façades</option>
              <option value="Shading">Shading Systems</option>
@@ -13,6 +14,7 @@
              <option value="GreenSyst">Green Systems</option>
           
          </select>
+         <button onclick="bldgidSearch()">Search</button>
          <button onclick="idSearch()">Search</button>
          <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
          <script type="text/javascript">
@@ -24,7 +26,7 @@
                      "dataSourceUrl": "//www.google.com/fusiontables/gvizdata?tq=",
                      "query":"SELECT 'Building ID', 'ID', 'Ventilation Type', 'Ventilation Mode', 'Cavity Partition', 'Input', 'Output' FROM " + 
                      "1xgIj3Wrx2VRHC7FdXU3sAoGKrX4Ac7ENVMy76rza" + 
-                     " WHERE 'ID' LIKE '"+ id +"' AND 'Building ID' LIKE '3'",
+                     " WHERE 'ID' LIKE '"+ id +"' AND 'Building ID' LIKE '"+ bldgid +"',
                      "chartType": "Table",
                      "options": {}
                  });
