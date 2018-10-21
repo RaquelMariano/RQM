@@ -91,6 +91,32 @@
                  });
              }
           
+          function bldgidSearch() 
+             {
+                 id = document.getElementById("bldgid").value;
+                 var e = document.getElementById("tableSelection");
+                 var value = e.options[e.selectedIndex].value;
+                 if (value == "DSF") {
+                     drawVisualizationDSF();
+                                     }
+                 else if (value == "Shading") {
+                     drawVisualizationShading();
+                                     }
+                 else if (value == "SmartMat") {
+                     drawVisualizationSmartMat();
+                                     }
+                 else if (value == "Opening") {
+                     drawVisualizationOpening();
+                                     }
+                 else if (value == "KineticEnv") {
+                     drawVisualizationKineticEnv();
+                                     }
+                else if (value == "GreenSyst") {
+                     drawVisualizationGreenSyst();
+                                     }
+             }
+
+          
              function idSearch() 
              {
                  id = document.getElementById("id").value;
