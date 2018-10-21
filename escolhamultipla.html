@@ -3,7 +3,6 @@
      <head>
          <meta http-equiv="content-type" content="text/html; charset=utf-8" />
          <title>Google Visualization API Sample</title>
-         <input type="text" id="id">
          <input type="text" bldgid="bldgid">
          <select id ="tableSelection">
              <option value="DSF">Double-Skin Façades</option>
@@ -26,7 +25,7 @@
                      "dataSourceUrl": "//www.google.com/fusiontables/gvizdata?tq=",
                      "query":"SELECT 'Building ID', 'ID', 'Ventilation Type', 'Ventilation Mode', 'Cavity Partition', 'Input', 'Output' FROM " + 
                      "1xgIj3Wrx2VRHC7FdXU3sAoGKrX4Ac7ENVMy76rza" + 
-                     " WHERE 'ID' LIKE '%"+ id +"%' AND 'Building ID' LIKE '%"+ bldgid +"%'",
+                     " WHERE 'Building ID' LIKE '%"+ bldgid +"%'",
                      "chartType": "Table",
                      "options": {}
                  });
@@ -117,30 +116,6 @@
              }
 
           
-             function idSearch() 
-             {
-                 id = document.getElementById("id").value;
-                 var e = document.getElementById("tableSelection");
-                 var value = e.options[e.selectedIndex].value;
-                 if (value == "DSF") {
-                     drawVisualizationDSF();
-                                     }
-                 else if (value == "Shading") {
-                     drawVisualizationShading();
-                                     }
-                 else if (value == "SmartMat") {
-                     drawVisualizationSmartMat();
-                                     }
-                 else if (value == "Opening") {
-                     drawVisualizationOpening();
-                                     }
-                 else if (value == "KineticEnv") {
-                     drawVisualizationKineticEnv();
-                                     }
-                else if (value == "GreenSyst") {
-                     drawVisualizationGreenSyst();
-                                     }
-             }
 
 
          </script>
