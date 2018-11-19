@@ -18,7 +18,7 @@
 	                 google.visualization.drawChart({
 	                     "containerId": "visualization_div",
 	                     "dataSourceUrl": "//www.google.com/fusiontables/gvizdata?tq=",
-	                     "query":"SELECT 'Building ID', 'ID', 'Ventilation Type', 'Ventilation Mode', 'Cavity Partition', 'Input', 'Output' FROM " + 
+	                     "query":"SELECT 'Building ID', 'ID', 'Ventilation Type' FROM " + 
 	                     "1xgIj3Wrx2VRHC7FdXU3sAoGKrX4Ac7ENVMy76rza" + 
 	                     " WHERE 'Building ID' LIKE '"+ id +"'",
 	                     "chartType": "Table",
@@ -30,10 +30,7 @@
 	          
 	             function idSearch() 
 	             {
-	                 id = document.getElementById("id").value;
-	                 var e = document.getElementById("tableSelection");
-	                 var value = e.options[e.selectedIndex].value;
-	                 if (value == "DSF") {
+	            
 	                     drawVisualizationDSF();
 	                                     }
 	                 
