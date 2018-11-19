@@ -7,6 +7,7 @@
         <select id ="tableSelection">
             <option value="dsf">Double-Skin Façades</option>
             <option value="shading">Shading Systems</option>
+            <option value="opening">Openings</option>
         </select>
         <button onclick="idSearch()">Search</button>
         <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
@@ -34,6 +35,17 @@
                     "chartType": "Table",
                     "options": {}
                 });
+                 }
+            function drawVisualizationOpening() {
+                google.visualization.drawChart({
+                    "containerId": "visualization_div",
+                    "dataSourceUrl": "//www.google.com/fusiontables/gvizdata?tq=",
+                    "query":"SELECT 'Building ID', 'ID', 'Type', 'Input', 'Output' FROM " + 
+                    "1mE1yJJb1LhBEsvRKZIT2d3Ggk5kjX26QVpa3cVSl" + 
+                    " WHERE 'Building ID' LIKE '%"+ id +"%'",
+                    "chartType": "Table",
+                    "options": {}
+                });
             }
             function idSearch() 
             {
@@ -46,7 +58,9 @@
                 else if (value == "shading") {
                     drawVisualizationShading();
                                     }
-                
+                else if (value == "opening") {
+                    drawVisualizationOpening();
+                                    }
             }
         </script>
     </head>
