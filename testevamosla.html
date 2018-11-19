@@ -5,8 +5,8 @@
         <title>Google Visualization API Sample</title>
         <input type="text" id="id">
         <select id ="tableSelection">
-            <option value="dsf">DSF</option>
-            <option value="shading">Shading</option>
+            <option value="dsf">Double-Skin Façades</option>
+            <option value="shading">Shading Systems</option>
         </select>
         <button onclick="idSearch()">Search</button>
         <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
@@ -17,7 +17,7 @@
                 google.visualization.drawChart({
                     "containerId": "visualization_div",
                     "dataSourceUrl": "//www.google.com/fusiontables/gvizdata?tq=",
-                    "query":"SELECT 'ID', 'Ventilation Type', 'Ventilation Mode', 'Cavity Partition' FROM " + 
+                    "query":"SELECT 'Building ID', 'ID', 'Ventilation Type', 'Ventilation Mode', 'Cavity Partition', 'Input', 'Output' FROM " + 
                     "1xgIj3Wrx2VRHC7FdXU3sAoGKrX4Ac7ENVMy76rza" + 
                     " WHERE 'Building ID' LIKE '%"+ id +"%'",
                     "chartType": "Table",
@@ -28,7 +28,7 @@
                 google.visualization.drawChart({
                     "containerId": "visualization_div",
                     "dataSourceUrl": "//www.google.com/fusiontables/gvizdata?tq=",
-                    "query":"SELECT 'ID', 'Type', 'Location', 'Input', 'Output', 'User Override' FROM " + 
+                    "query":"SELECT 'ID', 'Type', 'Location', 'Input', 'Output' FROM " + 
                     "18BG1RYsJPy4ngvwJiiM_9HLQoc90PMTJBQRhA9sc" + 
                     " WHERE 'Building ID' LIKE '%"+ id +"%'",
                     "chartType": "Table",
