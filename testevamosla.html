@@ -1,45 +1,56 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-	 <html xmlns="http://www.w3.org/1999/xhtml">
-	     <head>
-	         <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-	         <title>Google Visualization API Sample</title>
-	         <input type="text" id="id">
-	         <select id ="tableSelection">
-	             <option value="DSF">Double-Skin Façades</option>
-	            
-	          
-	         </select>
-	         <button onclick="idSearch()">Search</button>
-	         <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-	         <script type="text/javascript">
-	             google.charts.load("current", {packages:['table']});
-	             var id = "%";
-	             function drawVisualizationDSF() {
-	                 google.visualization.drawChart({
-	                     "containerId": "visualization_div",
-	                     "dataSourceUrl": "//www.google.com/fusiontables/gvizdata?tq=",
-	                     "query":"SELECT 'Building ID', 'ID', 'Ventilation Type' FROM " + 
-	                     "1xgIj3Wrx2VRHC7FdXU3sAoGKrX4Ac7ENVMy76rza" + 
-	                     " WHERE 'Building ID' LIKE '"+ id +"'",
-	                     "chartType": "Table",
-	                     "options": {}
-	                 });
-	             }
-	
-	          
-	          
-	             function idSearch() 
-	             {
-	            
-	                     drawVisualizationDSF();
-	                                     }
-	                 
-	             }
-	
-	
-	         </script>
-	     </head>
-	     <body style="font-family: Arial;border: 0 none;">
-	         <div id="visualization_div" style="width: 600px; height: 400px;"></div>
-	     </body>
-	 </html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <title>Google Visualization API Sample</title>
+        <input type="text" id="id">
+        <select id ="tableSelection">
+            <option value="dsf">DSF</option>
+            <option value="shading">Shading</option>
+        </select>
+        <button onclick="idSearch()">Search</button>
+        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+        <script type="text/javascript">
+            google.charts.load("current", {packages:['table']});
+            var id = "%";
+            function drawVisualizationDSF() {
+                google.visualization.drawChart({
+                    "containerId": "visualization_div",
+                    "dataSourceUrl": "//www.google.com/fusiontables/gvizdata?tq=",
+                    "query":"SELECT 'ID', 'Ventilation Type', 'Ventilation Mode', 'Cavity Partition' FROM " + 
+                    "1xgIj3Wrx2VRHC7FdXU3sAoGKrX4Ac7ENVMy76rza" + 
+                    " WHERE 'Building ID' LIKE '%"+ id +"%'",
+                    "chartType": "Table",
+                    "options": {}
+                });
+            }
+            function drawVisualizationShading() {
+                google.visualization.drawChart({
+                    "containerId": "visualization_div",
+                    "dataSourceUrl": "//www.google.com/fusiontables/gvizdata?tq=",
+                    "query":"SELECT 'ID', 'Type', 'Location', 'Input', 'Output', 'User Override' FROM " + 
+                    "18BG1RYsJPy4ngvwJiiM_9HLQoc90PMTJBQRhA9sc" + 
+                    " WHERE 'Building ID' LIKE '%"+ id +"%'",
+                    "chartType": "Table",
+                    "options": {}
+                });
+            }
+            function idSearch() 
+            {
+                id = document.getElementById("id").value;
+                var e = document.getElementById("tableSelection");
+                var value = e.options[e.selectedIndex].value;
+                if (value == "dsf") {
+                    drawVisualizationDSF();
+                                    }
+                else if (value == "shading") {
+                    drawVisualizationShading();
+                                    }
+                
+            }
+        </script>
+    </head>
+    <body style="font-family: Arial;border: 0 none;">
+        <div id="visualization_div" style="width: 600px; height: 400px;"></div>
+    </body>
+</html>
